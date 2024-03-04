@@ -1,113 +1,230 @@
-import Image from "next/image";
+import { MoveUpRight } from "lucide-react";
+import Link from "next/link";
+import React from "react";
+import {
+  SiC,
+  SiDiscord,
+  SiExpress,
+  SiJavascript,
+  SiMysql,
+  SiNextdotjs,
+  SiPhp,
+  SiPostgresql,
+  SiPython,
+  SiRedis,
+  SiSpotify,
+  SiTypescript,
+} from "react-icons/si";
+
+interface Project {
+  title: string;
+  description: string;
+  link: string;
+  stack?: React.ReactNode;
+}
 
 export default function Home() {
+  function shuffle(array: any[]) {
+    let currentIndex = array.length,
+      randomIndex;
+
+    // While there remain elements to shuffle.
+    while (currentIndex > 0) {
+      // Pick a remaining element.
+      randomIndex = Math.floor(Math.random() * currentIndex);
+      currentIndex--;
+
+      // And swap it with the current element.
+      [array[currentIndex], array[randomIndex]] = [
+        array[randomIndex],
+        array[currentIndex],
+      ];
+    }
+
+    return array;
+  }
+
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <div className="z-10 max-w-5xl w-full items-center justify-between font-mono text-sm lg:flex">
-        <p className="fixed left-0 top-0 flex w-full justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 pb-6 pt-8 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto  lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30">
-          Get started by editing&nbsp;
-          <code className="font-mono font-bold">src/app/page.tsx</code>
+    <div className="grid max-w-screen-xl grid-cols-1 gap-10 p-20 md:grid-cols-2">
+      <div className="flex flex-col gap-4 font-mono text-gray-300">
+        <h1 className="font-sans text-4xl font-extrabold tracking-tighter text-white">
+          Jerry Febriano
+        </h1>
+        <p>
+          Your average comp-sci undergraduate that addicted to black theme.
+          Doing some side projects here and there.
         </p>
-        <div className="fixed bottom-0 left-0 flex h-48 w-full items-end justify-center bg-gradient-to-t from-white via-white dark:from-black dark:via-black lg:static lg:h-auto lg:w-auto lg:bg-none">
-          <a
-            className="pointer-events-none flex place-items-center gap-2 p-8 lg:pointer-events-auto lg:p-0"
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
+
+        <p>
+          Currently learning:{" "}
+          <Link
             target="_blank"
-            rel="noopener noreferrer"
+            className="font-bold text-white underline-offset-2 hover:underline"
+            href="https://expo.dev"
           >
-            By{" "}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className="dark:invert"
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
+            Expo
+          </Link>
+        </p>
+
+        <div className="flex gap-2 font-light text-gray-600 underline-offset-2">
+          <Link
+            target="_blank"
+            href="https://github.com/yoshikazuuu"
+            className="underline transition-colors duration-200 hover:text-white"
+          >
+            GitHub
+          </Link>
+          <p className="no-underline">•</p>
+          <Link
+            target="_blank"
+            href="https://www.linkedin.com/in/jerryfebriano/"
+            className="underline transition-colors duration-200 hover:text-white"
+          >
+            LinkedIn
+          </Link>
         </div>
       </div>
-
-      <div className="relative flex place-items-center before:absolute before:h-[300px] before:w-full sm:before:w-[480px] before:-translate-x-1/2 before:rounded-full before:bg-gradient-radial before:from-white before:to-transparent before:blur-2xl before:content-[''] after:absolute after:-z-20 after:h-[180px] after:w-full sm:after:w-[240px] after:translate-x-1/3 after:bg-gradient-conic after:from-sky-200 after:via-blue-200 after:blur-2xl after:content-[''] before:dark:bg-gradient-to-br before:dark:from-transparent before:dark:to-blue-700 before:dark:opacity-10 after:dark:from-sky-900 after:dark:via-[#0141ff] after:dark:opacity-40 before:lg:h-[360px] z-[-1]">
-        <Image
-          className="relative dark:drop-shadow-[0_0_0.3rem_#ffffff70] dark:invert"
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
+      <div>
+        <h2 className="font-mono text-lg font-bold text-gray-400">
+          PROJECTS {projects.length}
+        </h2>
+        <div className="flex flex-col gap-1 py-5">
+          {shuffle(projects).map((project, index) => (
+            <Project key={index} {...project} />
+          ))}
+        </div>
       </div>
-
-      <div className="mb-32 grid text-center lg:max-w-5xl lg:w-full lg:mb-0 lg:grid-cols-4 lg:text-left">
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Docs{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Find in-depth information about Next.js features and API.
-          </p>
-        </a>
-
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Learn{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Learn about Next.js in an interactive course with&nbsp;quizzes!
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Templates{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Explore starter templates for Next.js.
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Deploy{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50 text-balance`}>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
-    </main>
+    </div>
   );
 }
+
+const Project = ({ title, description, link, stack }: Project) => {
+  return (
+    <Link
+      href={link}
+      className="group flex flex-col gap-2 rounded-md p-5 text-gray-200 transition-colors duration-200 hover:bg-gray-200/10 hover:decoration-white"
+    >
+      <div className="flex gap-2 underline decoration-gray-700 underline-offset-2 transition-colors duration-200 group-hover:decoration-white">
+        {title.toUpperCase()}{" "}
+        <MoveUpRight
+          size={16}
+          className="text-gray-700 transition-colors duration-200 group-hover:text-white"
+        />
+      </div>
+      <p className="font-mono text-sm text-gray-700 transition-colors duration-200 group-hover:text-gray-400">
+        {description}
+      </p>
+
+      <div className="flex gap-2 text-gray-700 group-hover:text-gray-400">
+        {stack}
+      </div>
+    </Link>
+  );
+};
+
+const projects: Project[] = [
+  {
+    title: "Cursed Todo List",
+    description:
+      "🏫 This is a calendar based appointment and todo-list. Created using the low-level library (ncurses.h) and it's resizeable.",
+    link: "https://github.com/yoshikazuuu/cursed-todolist",
+    stack: (
+      <>
+        <SiC />
+      </>
+    ),
+  },
+  {
+    title: "Haya-chan",
+    description:
+      "🤖 Discord bot that related to https://socs1.binus.ac.id/quiz. Written in Python.",
+    link: "https://github.com/yoshikazuuu/hayachan",
+    stack: (
+      <>
+        <SiPython />
+        <SiDiscord />
+      </>
+    ),
+  },
+  {
+    title: "PHP-MySQL Todo List",
+    description: "🏫 To-do-list using SQL and PHP with user authentication.",
+    link: "https://github.com/yoshikazuuu/MidProject-BackendDevelopment-2022",
+    stack: (
+      <>
+        <SiPhp />
+        <SiMysql />
+      </>
+    ),
+  },
+  {
+    title: "Manga Downloader",
+    description: "🔗 Mangadex and nHentai downloader using Express.js",
+    link: "https://github.com/yoshikazuuu/manga-downloader",
+    stack: (
+      <>
+        <SiJavascript />
+        <SiExpress />
+      </>
+    ),
+  },
+  {
+    title: "Mizuki",
+    description: "🎀 Mizuki is a multi purposes bot that has cute side to it.",
+    link: "https://mizuki.yoshi.moe/",
+    stack: (
+      <>
+        <SiJavascript />
+        <SiDiscord />
+      </>
+    ),
+  },
+  {
+    title: "Aihime",
+    description: "🎀 Spotify API implementation and Next.js based website.",
+    link: "https://aihime.yoshi.moe/",
+    stack: (
+      <>
+        <SiJavascript />
+        <SiNextdotjs />
+        <SiSpotify />
+      </>
+    ),
+  },
+  {
+    title: "Ena",
+    description: "📚 Redis key-value store implementation.",
+    link: "https://ena.yoshi.moe/",
+    stack: (
+      <>
+        <SiTypescript />
+        <SiRedis />
+        <SiNextdotjs />
+      </>
+    ),
+  },
+  {
+    title: "AOL Database",
+    description: "🏫 CRUD database operations for final project.",
+    link: "https://aol-database.yoshi.moe/",
+    stack: (
+      <>
+        <SiTypescript />
+        <SiPostgresql />
+        <SiNextdotjs />
+      </>
+    ),
+  },
+  {
+    title: "AOL Algorithm Design and Analysis",
+    description:
+      "🏫 Coin change problem visualization, based on dynamic programming approach.",
+    link: "https://aol-ada.yoshi.moe/",
+    stack: (
+      <>
+        <SiTypescript />
+        <SiNextdotjs />
+      </>
+    ),
+  },
+];
