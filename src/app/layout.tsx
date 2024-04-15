@@ -9,8 +9,6 @@ export const metadata: Metadata = {
   title: "Jerry Febriano",
   description: "Your average comp-sci undergraduate that addicted to black theme.",
   openGraph: {
-    title: 'yoshi.moe',
-    description: 'OG Picture',
     url: 'https://yoshi.moe',
     siteName: 'Jerry Febriano',
     images: [
