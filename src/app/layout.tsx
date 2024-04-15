@@ -7,7 +7,28 @@ import { ThemeProvider } from "@/components/theme-provider";
 
 export const metadata: Metadata = {
   title: "Jerry Febriano",
-  description: "a state-of-the-art",
+  description: "Your average comp-sci undergraduate that addicted to black theme.",
+  openGraph: {
+    title: 'yoshi.moe',
+    description: 'OG Picture',
+    url: 'https://yoshi.moe',
+    siteName: 'Jerry Febriano',
+    images: [
+      {
+        url: 'https://www.yoshi.moe/yoshi_og.png',
+        width: 1200,
+        height: 630,
+      },
+      {
+        url: 'https://www.yoshi.moe/yoshi_og.png',
+        width: 1200,
+        height: 630,
+        alt: 'og',
+      },
+    ],
+    locale: 'en_US',
+    type: 'website',
+  },
 };
 
 export default function RootLayout({
