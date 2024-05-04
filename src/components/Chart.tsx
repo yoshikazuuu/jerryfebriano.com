@@ -13,7 +13,7 @@ interface ChartData {
 
 async function getChart() {
   return await fetch(
-    "https://wakatime.com/share/@yoshikazuuu/135bb74b-846f-42bf-88da-7dfdef496b57.json",
+    "https://wakatime.com/share/@yoshikazuuu/9ba9be01-0704-4275-b0dd-61c0dcf626ec.json",
   ).then((res) => {
     return res.json();
   });
