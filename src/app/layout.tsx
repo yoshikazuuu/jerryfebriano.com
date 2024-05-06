@@ -7,25 +7,26 @@ import { ThemeProvider } from "@/components/theme-provider";
 
 export const metadata: Metadata = {
   title: "Jerry Febriano",
-  description: "Your average comp-sci undergraduate that addicted to black theme.",
+  description:
+    "Your average comp-sci undergraduate that addicted to black theme.",
   openGraph: {
-    url: 'https://yoshi.moe',
-    siteName: 'Jerry Febriano',
+    url: "https://yoshi.moe",
+    siteName: "Jerry Febriano",
     images: [
       {
-        url: 'https://www.yoshi.moe/yoshi_og.png',
+        url: "https://www.yoshi.moe/yoshi_og.png",
         width: 1200,
         height: 630,
       },
       {
-        url: 'https://www.yoshi.moe/yoshi_og.png',
+        url: "https://www.yoshi.moe/yoshi_og.png",
         width: 1200,
         height: 630,
-        alt: 'og',
+        alt: "og",
       },
     ],
-    locale: 'en_US',
-    type: 'website',
+    locale: "en_US",
+    type: "website",
   },
 };
 
@@ -36,7 +37,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${GeistSans.variable} ${GeistMono.variable}`}>
-      <body className="flex h-screen justify-center">
+      <body className="flex flex-col items-center p-5 min-h-screen justify-center">
         <ThemeProvider
           attribute="class"
           defaultTheme="system"
