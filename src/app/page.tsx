@@ -1,8 +1,9 @@
 import { Chart } from "@/components/Chart";
 import Projects from "@/components/Project";
-import { Dot } from "lucide-react";
+import { Dot, FileText } from "lucide-react";
 import Link from "next/link";
 import React from "react";
+import { SiGithub, SiLinkedin } from "react-icons/si";
 
 export default function Home() {
   return (
@@ -28,20 +29,31 @@ export default function Home() {
             </Link>
           </p>
 
-          <div className="flex gap-2 font-light text-gray-600 underline-offset-2">
+          <div className="flex gap-2 font-light text-gray-300 underline-offset-2">
+            <Link
+              target="_blank"
+              href="/resume.pdf"
+              className="flex items-center gap-2 hover:underline transition-colors duration-200 hover:text-white"
+            >
+              <FileText size={16} />
+              Resume
+            </Link>
+            <p className="no-underline">•</p>
             <Link
               target="_blank"
               href="https://github.com/yoshikazuuu"
-              className="underline transition-colors duration-200 hover:text-white"
+              className="flex items-center gap-2 hover:underline transition-colors duration-200 hover:text-white"
             >
+              <SiGithub size={16} />
               GitHub
             </Link>
             <p className="no-underline">•</p>
             <Link
               target="_blank"
               href="https://www.linkedin.com/in/jerryfebriano/"
-              className="underline transition-colors duration-200 hover:text-white"
+              className="flex items-center gap-2 hover:underline transition-colors duration-200 hover:text-white"
             >
+              <SiLinkedin size={16} />
               LinkedIn
             </Link>
           </div>

@@ -45,6 +45,7 @@ const Project = ({ title, description, link, stack, image }: Project) => {
   return (
     <Link
       href={link}
+      target="_blank"
       className="group flex flex-col gap-2 rounded-md p-5 text-gray-200 transition-colors duration-200 hover:bg-gray-200/10 hover:decoration-white"
     >
       {image && (
@@ -96,6 +97,7 @@ const projects: Project[] = [
     title: "Mizuki",
     description: "🎀 Mizuki is a multi purposes bot that has cute side to it.",
     link: "https://mizuki.yoshi.moe/",
+    image: "/mizuki.png",
     stack: (
       <>
         <SiJavascript />
@@ -107,6 +109,7 @@ const projects: Project[] = [
     title: "Aihime",
     description: "🎀 Spotify API implementation and Next.js based website.",
     link: "https://aihime.yoshi.moe/",
+    image: "/aihime.png",
     stack: (
       <>
         <SiJavascript />
@@ -120,6 +123,7 @@ const projects: Project[] = [
     description:
       "🏫 This is a calendar based appointment and todo-list. Created using the low-level library (ncurses.h) and it's resizeable.",
     link: "https://github.com/yoshikazuuu/cursed-todolist",
+    image: "/cursed-todolist.png",
     stack: (
       <>
         <SiC />
@@ -127,9 +131,22 @@ const projects: Project[] = [
     ),
   },
   {
+    title: "PHP-MySQL Todo List",
+    description: "🏫 To-do-list using SQL and PHP with user authentication.",
+    link: "https://github.com/yoshikazuuu/MidProject-BackendDevelopment-2022",
+    image: "/php-mysql-todolist.png",
+    stack: (
+      <>
+        <SiPhp />
+        <SiMysql />
+      </>
+    ),
+  },
+  {
     title: "AOL Database",
     description: "🏫 CRUD database operations for final project.",
     link: "https://aol-database.yoshi.moe/",
+    image: "/aol-database.png",
     stack: (
       <>
         <SiTypescript />
@@ -143,6 +160,7 @@ const projects: Project[] = [
     description:
       "🏫 Coin change problem visualization, based on dynamic programming approach.",
     link: "https://aol-ada.yoshi.moe/",
+    image: "/aol-ada.png",
     stack: (
       <>
         <SiTypescript />
@@ -155,6 +173,7 @@ const projects: Project[] = [
     description:
       "🤖 Discord bot that related to https://socs1.binus.ac.id/quiz. Written in Python.",
     link: "https://github.com/yoshikazuuu/hayachan",
+    image: "/hayachan.png",
     stack: (
       <>
         <SiPython />
@@ -163,20 +182,10 @@ const projects: Project[] = [
     ),
   },
   {
-    title: "PHP-MySQL Todo List",
-    description: "🏫 To-do-list using SQL and PHP with user authentication.",
-    link: "https://github.com/yoshikazuuu/MidProject-BackendDevelopment-2022",
-    stack: (
-      <>
-        <SiPhp />
-        <SiMysql />
-      </>
-    ),
-  },
-  {
     title: "Manga Downloader",
     description: "🔗 Mangadex and nHentai downloader using Express.js",
     link: "https://github.com/yoshikazuuu/manga-downloader",
+    image: "/manga-downloader.png",
     stack: (
       <>
         <SiJavascript />
@@ -188,6 +197,7 @@ const projects: Project[] = [
     title: "Ena",
     description: "📚 Redis key-value store implementation.",
     link: "https://ena.yoshi.moe/",
+    image: "/ena.png",
     stack: (
       <>
         <SiTypescript />

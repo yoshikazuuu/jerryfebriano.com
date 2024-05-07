@@ -13,7 +13,7 @@ interface ChartData {
 
 async function getChart() {
   return await fetch(
-    "https://wakatime.com/share/@yoshikazuuu/9ba9be01-0704-4275-b0dd-61c0dcf626ec.json",
+    "https://wakatime.com/share/@yoshikazuuu/9ba9be01-0704-4275-b0dd-61c0dcf626ec.json"
   ).then((res) => {
     return res.json();
   });
@@ -22,7 +22,7 @@ async function getChart() {
 export async function Chart() {
   const chart = await getChart();
   return (
-    <div className="scrollbar-hide no-scrollbar flex h-72 flex-col gap-2 overflow-y-auto rounded-md border p-5 text-sm md:h-full">
+    <div className="scrollbar-hide no-scrollbar flex h-72 flex-col gap-2 overflow-y-auto rounded-md border p-5 text-sm md:h-fit">
       <h1 className="py-2 font-sans text-xl font-bold tracking-tight">
         Coding Activities
       </h1>
