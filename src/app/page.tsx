@@ -14,8 +14,29 @@ export default function Home() {
             Jerry Febriano
           </h1>
           <p>
-            Your average comp-sci undergraduate that addicted to black theme.
-            Doing some side projects here and there.
+            Your comp-sci undergraduate with a strong preference for dark-themed
+            interfaces. Passionate about developing side projects and
+            continually exploring new opportunities.
+            <br />
+            <br />
+            Possess extensive experience in web development, particularly in
+            front-end technologies like{" "}
+            <Link
+              className="text-blue-400 hover:underline"
+              target="_blank"
+              href="https://react.dev"
+            >
+              React
+            </Link>{" "}
+            and{" "}
+            <Link
+              className="text-blue-400 hover:underline"
+              target="_blank"
+              href="https://nextjs.org"
+            >
+              Next.js
+            </Link>
+            .
           </p>
 
           <p>
