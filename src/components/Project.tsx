@@ -4,6 +4,7 @@ import Link from "next/link";
 import {
   SiC,
   SiDiscord,
+  SiDjango,
   SiExpress,
   SiJavascript,
   SiMysql,
@@ -15,6 +16,7 @@ import {
   SiRedis,
   SiSpotify,
   SiTailwindcss,
+  SiTrpc,
   SiTypescript,
 } from "react-icons/si";
 
@@ -94,6 +96,25 @@ const projects: Project[] = [
     ),
   },
   {
+    title: "binus/ai",
+    description:
+      "🏫 Emotion analysis using BERT Model. Final project for Artificial Intelligence course.",
+    link: "https://aol-ai.yoshi.moe",
+    image: "/aol-ai.png",
+    stack: (
+      <>
+        <SiTypescript />
+        <SiPython />
+        <SiNextdotjs />
+        <SiDjango />
+        <SiTailwindcss />
+        <SiPostgresql />
+        <SiPrisma />
+        <SiTrpc />
+      </>
+    ),
+  },
+  {
     title: "Mizuki",
     description: "🎀 Mizuki is a multi purposes bot that has cute side to it.",
     link: "https://mizuki.yoshi.moe/",
@@ -150,8 +171,9 @@ const projects: Project[] = [
     stack: (
       <>
         <SiTypescript />
-        <SiPostgresql />
         <SiNextdotjs />
+        <SiPostgresql />
+        <SiTrpc />
       </>
     ),
   },
