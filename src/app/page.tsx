@@ -36,7 +36,15 @@ export default function Home() {
             >
               Next.js
             </Link>
-            .
+            , with some experience in{" "}
+            <Link
+              className="text-blue-400 hover:underline"
+              target="_blank"
+              href="https://nextjs.org"
+            >
+              Next.js
+            </Link>{" "}
+            for back-end development.
           </p>
 
           <p>
