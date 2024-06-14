@@ -40,9 +40,9 @@ export default function Home() {
             <Link
               className="text-blue-400 hover:underline"
               target="_blank"
-              href="https://nextjs.org"
+              href="https://expressjs.com/"
             >
-              Next.js
+              Express.js
             </Link>{" "}
             for back-end development.
           </p>
