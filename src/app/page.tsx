@@ -1,4 +1,5 @@
 import { Chart } from "@/components/Chart";
+import { ModeToggle } from "@/components/ModeToggle";
 import Projects from "@/components/Project";
 import { Dot, FileText } from "lucide-react";
 import Link from "next/link";
@@ -10,9 +11,9 @@ export default function Home() {
     <>
       <div className="grid h-fit max-w-screen-xl grid-cols-1 gap-10 p-5 md:grid-cols-2">
         <div className="flex flex-col gap-4 font-mono text-muted-foreground">
-          <h1 className="font-sans text-4xl font-extrabold tracking-tighter text-white">
-            Jerry Febriano
-          </h1>
+          <div className="flex gap-2 items-center">
+            <ModeToggle />
+          </div>
           <p>
             Your comp-sci undergraduate with a strong preference for dark-themed
             interfaces. Passionate about developing side projects and
