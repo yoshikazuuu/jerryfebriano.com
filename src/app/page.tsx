@@ -44,7 +44,7 @@ export default function Home() {
       initial="hidden"
       animate="visible"
       variants={containerVariants}
-      className="min-h-screen flex flex-col justify-center items-center p-5"
+      className="min-h-svh flex flex-col justify-center items-center p-5"
     >
       <motion.div
         variants={itemVariants}
