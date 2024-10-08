@@ -2,31 +2,28 @@
 
 import { useTheme } from "next-themes";
 import { useEffect, useState } from "react";
+import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
 
-export function ModeToggle() {
+export function Title() {
   const { setTheme, theme } = useTheme();
-  const [mounted, setMounted] = useState(false);
 
-  useEffect(() => {
-    setMounted(true);
-  }, []);
-
-  if (!mounted) {
-    return null; // or a loading spinner, or any placeholder you prefer
-  }
+  const toggleTheme = () => {
+    setTheme(theme === "dark" ? "light" : "dark");
+  };
 
   return (
-    <h1
-      onClick={() => {
-        setTheme(theme === "dark" ? "light" : "dark");
-      }}
+    <motion.h1
+      onClick={toggleTheme}
       className={cn(
         "font-sans cursor-pointer text-4xl font-extrabold tracking-tighter",
         theme === "dark" ? "text-white" : "text-black"
       )}
+      initial={{ opacity: 0, y: -20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.5 }}
     >
       Jerry Febriano
-    </h1>
+    </motion.h1>
   );
 }

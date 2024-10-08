@@ -4,7 +4,6 @@ import { GeistMono } from "geist/font/mono";
 
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
-import { ModeToggle } from "@/components/ModeToggle";
 
 export const metadata: Metadata = {
   title: "Jerry Febriano",
@@ -41,8 +40,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${GeistSans.variable} ${GeistMono.variable}`}>
-      <body className="flex flex-col items-center p-5 min-h-screen justify-center">
+    <html lang="en">
+      <body
+        className={`${GeistSans.variable} ${GeistMono.variable} font-mono flex flex-col items-center p-5 min-h-svh justify-center`}
+      >
         <ThemeProvider
           attribute="class"
           defaultTheme="dark"
