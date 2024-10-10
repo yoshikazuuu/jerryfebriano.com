@@ -41,9 +41,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`${GeistSans.variable} ${GeistMono.variable} font-mono flex flex-col items-center p-5 min-h-svh justify-center`}
-      >
+      <body className={`${GeistSans.variable} ${GeistMono.variable}`}>
         <ThemeProvider
           attribute="class"
           defaultTheme="dark"
