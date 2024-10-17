@@ -4,6 +4,8 @@ import { GeistMono } from "geist/font/mono";
 
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
+import { FloatingNavbar } from "@/components/floating-navbar";
+import { LayoutTransition } from "@/components/layout-transition";
 
 export const metadata: Metadata = {
   title: "Jerry Febriano",
@@ -48,7 +50,14 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          {children}
+          <LayoutTransition
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+          >
+            {children}
+          </LayoutTransition>
+          <FloatingNavbar />
         </ThemeProvider>
       </body>
     </html>

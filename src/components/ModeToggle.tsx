@@ -4,6 +4,7 @@ import { useTheme } from "next-themes";
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
+import { MoonIcon, SunIcon } from "lucide-react";
 
 export function Title() {
   const { setTheme, theme } = useTheme();
@@ -26,4 +27,10 @@ export function Title() {
       Jerry Febriano
     </motion.h1>
   );
+}
+
+export function IconToggle() {
+  const { theme } = useTheme();
+
+  return theme === "dark" ? <SunIcon /> : <MoonIcon />;
 }
