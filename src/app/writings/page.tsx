@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 import { containerVariants, itemVariants } from "@/lib/transitions";
 
 // Mock data for blog posts
-const blogPosts = [];
+// const blogPosts = [];
 
 export default function WritingsPage() {
   return (
@@ -26,11 +26,11 @@ export default function WritingsPage() {
           >
             Writings
           </motion.h1>
-          {blogPosts.length === 0 ? (
-            <p className="text-muted-foreground">
-              No posts available at the moment.
-            </p>
-          ) : (
+          {/* {blogPosts.length === 0 ? ( */}
+          <p className="text-muted-foreground">
+            No posts available at the moment.
+          </p>
+          {/* ) : (
             blogPosts.map((post) => (
               <motion.div key={post.id} variants={itemVariants}>
                 <Link
@@ -46,7 +46,7 @@ export default function WritingsPage() {
                 </Link>
               </motion.div>
             ))
-          )}
+          )} */}
         </div>
       </motion.div>
     </motion.div>
