@@ -1,50 +1,13 @@
 "use client";
 
 import Link from "next/link";
-import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
-import { FileText } from "lucide-react";
+import { containerVariants, itemVariants } from "@/lib/transitions";
 
 // Mock data for blog posts
-const blogPosts = [
-  { id: 1, title: "Getting Started with React", date: "2023-05-15" },
-  { id: 2, title: "Advanced Next.js Techniques", date: "2023-06-22" },
-  { id: 3, title: "The Art of Self-Hosting", date: "2023-07-30" },
-  { id: 4, title: "Mastering Tailwind CSS", date: "2023-08-14" },
-  { id: 5, title: "Building Accessible Web Applications", date: "2023-09-05" },
-];
+const blogPosts = [];
 
 export default function WritingsPage() {
-  const [mounted, setMounted] = useState(false);
-
-  useEffect(() => {
-    setMounted(true);
-  }, []);
-
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.1,
-        delayChildren: 0.3,
-      },
-    },
-  };
-
-  const itemVariants = {
-    hidden: { y: 20, opacity: 0 },
-    visible: {
-      y: 0,
-      opacity: 1,
-      transition: { type: "spring", stiffness: 100 },
-    },
-  };
-
-  if (!mounted) {
-    return null;
-  }
-
   return (
     <motion.div
       initial="hidden"
@@ -63,21 +26,27 @@ export default function WritingsPage() {
           >
             Writings
           </motion.h1>
-          {blogPosts.map((post) => (
-            <motion.div key={post.id} variants={itemVariants}>
-              <Link
-                href={`/writings/${post.id}`}
-                className="flex items-start gap-4 group"
-              >
-                <div className="flex flex-col">
-                  <h2 className="text-foreground group-hover:underline transition-colors duration-200">
-                    {post.title}
-                  </h2>
-                  <p className="text-xs text-muted-foreground">{post.date}</p>
-                </div>
-              </Link>
-            </motion.div>
-          ))}
+          {blogPosts.length === 0 ? (
+            <p className="text-muted-foreground">
+              No posts available at the moment.
+            </p>
+          ) : (
+            blogPosts.map((post) => (
+              <motion.div key={post.id} variants={itemVariants}>
+                <Link
+                  href={`/writings/${post.id}`}
+                  className="flex items-start gap-4 group"
+                >
+                  <div className="flex flex-col">
+                    <h2 className="text-foreground group-hover:underline transition-colors duration-200">
+                      {post.title}
+                    </h2>
+                    <p className="text-xs text-muted-foreground">{post.date}</p>
+                  </div>
+                </Link>
+              </motion.div>
+            ))
+          )}
         </div>
       </motion.div>
     </motion.div>
