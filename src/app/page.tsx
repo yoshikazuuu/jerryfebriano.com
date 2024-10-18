@@ -1,6 +1,5 @@
 "use client";
 
-import { Title } from "@/components/ModeToggle";
 import { FileText } from "lucide-react";
 import Link from "next/link";
 import { SiGithub, SiLinkedin } from "react-icons/si";
@@ -27,7 +26,9 @@ export default function Home() {
               variants={itemVariants}
               className="flex gap-2 items-center"
             >
-              <Title />
+              <p className="font-sans text-foreground cursor-pointer text-4xl font-extrabold tracking-tighter">
+                Jerry Febriano
+              </p>
             </motion.div>
             <motion.p variants={itemVariants} className="text-justify">
               Your comp-sci undergraduate with a strong preference for
