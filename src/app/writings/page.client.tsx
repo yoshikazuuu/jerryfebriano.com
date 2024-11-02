@@ -17,7 +17,7 @@ export default function WritingsPageClient({
     >
       <motion.div
         variants={itemVariants}
-        className="grid max-w-sm w-full grid-cols-1 gap-10"
+        className="grid max-w-xl w-full grid-cols-1 gap-10"
       >
         <div className="flex flex-col text-sm gap-4 font-mono font-light text-muted-foreground">
           <motion.div
