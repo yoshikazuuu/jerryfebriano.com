@@ -30,7 +30,7 @@ export default function Home() {
                 Jerry Febriano
               </p>
             </motion.div>
-            <motion.p variants={itemVariants} className="text-justify">
+            <p className="text-justify">
               Your comp-sci undergraduate with a strong preference for
               dark-themed interfaces. Passionate about developing side projects
               and continually exploring new opportunities.
@@ -62,7 +62,7 @@ export default function Home() {
                 Express.js
               </Link>{" "}
               for back-end development.
-            </motion.p>
+            </p>
 
             <motion.p variants={itemVariants}>
               Currently learning:{" "}

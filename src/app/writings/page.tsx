@@ -1,11 +1,7 @@
 "use client";
 
-import Link from "next/link";
 import { motion } from "framer-motion";
 import { containerVariants, itemVariants } from "@/lib/transitions";
-
-// Mock data for blog posts
-// const blogPosts = [];
 
 export default function WritingsPage() {
   return (
@@ -20,12 +16,14 @@ export default function WritingsPage() {
         className="grid max-w-sm w-full grid-cols-1 gap-10"
       >
         <div className="flex flex-col text-sm gap-4 font-mono font-light text-muted-foreground">
-          <motion.h1
+          <motion.div
             variants={itemVariants}
-            className="text-2xl font-bold text-foreground mb-4"
+            className="flex gap-2 items-center"
           >
-            Writings
-          </motion.h1>
+            <p className="font-sans text-foreground cursor-pointer text-4xl font-extrabold tracking-tighter">
+              Writings
+            </p>
+          </motion.div>
           {/* {blogPosts.length === 0 ? ( */}
           <p className="text-muted-foreground">
             No posts available at the moment.

@@ -11,26 +11,27 @@ export default function UsesPage() {
       initial="hidden"
       animate="visible"
       variants={containerVariants}
-      className="min-h-svh flex flex-col justify-center items-center p-5"
+      className="min-h-svh flex flex-col justify-center gap-4 items-center p-5"
     >
+      <motion.div variants={itemVariants} className="flex gap-2 items-center">
+        <p className="font-sans text-foreground cursor-pointer text-4xl font-extrabold tracking-tighter">
+          Uses
+        </p>
+      </motion.div>
+      <motion.div variants={itemVariants} className="max-w-xl aspect-[15.4/10]">
+        <Image
+          src="/desktop.png"
+          alt="my setup"
+          width={1000}
+          height={800}
+          className="relative rounded-md drop-shadow-lg"
+        />
+      </motion.div>
       <motion.div
         variants={itemVariants}
         className="grid w-full  grid-cols-1 gap-10"
       >
         <div className="flex flex-col items-center text-left text-sm gap-4 font-mono font-light text-muted-foreground">
-          <motion.h1
-            variants={itemVariants}
-            className="text-2xl  font-bold text-foreground mb-4"
-          >
-            Uses
-          </motion.h1>
-          <Image
-            src="/desktop.png"
-            alt="my setup"
-            width={1000}
-            height={800}
-            className="max-w-xl relative rounded-md drop-shadow-lg"
-          />
           <p className="mb-6">Some of my stuffs.</p>
           <ul className="space-y-4">
             <li>
