@@ -1,35 +1,51 @@
 "use client";
+
 import { motion } from "framer-motion";
-import { FileText, ChevronRight } from "lucide-react";
+import { FileText, Clock } from "lucide-react";
 import Link from "next/link";
 import { FolderData } from "../types/blog";
-import { itemVariants } from "@/lib/transitions";
 
 interface PostListProps {
   posts: FolderData[];
 }
 
+const itemVariants = {
+  hidden: { opacity: 0, y: 20 },
+  visible: { opacity: 1, y: 0 },
+};
+
 export function PostList({ posts }: PostListProps) {
   return (
-    <motion.ul variants={itemVariants} className="space-y-6">
+    <motion.ul
+      initial="hidden"
+      animate="visible"
+      variants={{
+        visible: {
+          transition: {
+            staggerChildren: 0.1,
+          },
+        },
+      }}
+      className="space-y-6"
+    >
       {posts.map(({ folderName, metadata }) => (
         <motion.li key={folderName} variants={itemVariants}>
-          <Link
-            href={`/posts/${folderName}`}
-            className="group block hover:bg-muted p-4 rounded-lg transition-colors duration-200"
-          >
-            <div className="flex items-center justify-between">
+          <Link href={`/posts/${folderName}`} className="block group">
+            <div className="relative">
               <h2 className="text-xl font-semibold text-foreground group-hover:text-primary transition-colors duration-200">
                 {metadata.title}
               </h2>
-              <ChevronRight className="text-muted-foreground group-hover:text-primary transition-colors duration-200" />
+              <div className="absolute left-0 bottom-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full" />
             </div>
-            <p className="text-muted-foreground mt-2 font-mono text-sm">
-              {metadata.description}
-            </p>
-            <div className="flex items-center gap-2 mt-4 text-xs text-muted-foreground">
-              <FileText size={14} />
-              <span>{metadata.readingTime || "5 min read"}</span>
+            <div className="flex items-center gap-4 mt-2 text-sm text-muted-foreground">
+              <div className="flex items-center gap-1">
+                <FileText size={14} />
+                <span>{metadata.readingTime || "5 min read"}</span>
+              </div>
+              <div className="flex items-center gap-1">
+                <Clock size={14} />
+                <span>{new Date(metadata.date).toLocaleDateString()}</span>
+              </div>
             </div>
           </Link>
         </motion.li>
