@@ -2,8 +2,9 @@
 
 import Link from "next/link";
 import { motion } from "framer-motion";
-import Image from "next/image";
 import { containerVariants, itemVariants } from "@/lib/transitions";
+import desktop from "../../../public/desktop.png";
+import SmoothBlurImage from "@/components/SmoothBlurImage";
 
 export default function UsesPage() {
   return (
@@ -19,11 +20,11 @@ export default function UsesPage() {
         </p>
       </motion.div>
       <motion.div variants={itemVariants} className="max-w-xl aspect-[15.4/10]">
-        <Image
-          src="/desktop.png"
+        <SmoothBlurImage
+          src={desktop}
           alt="my setup"
-          width={1000}
-          height={800}
+          width={616}
+          height={400}
           className="relative rounded-md drop-shadow-lg"
         />
       </motion.div>
