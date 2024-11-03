@@ -47,6 +47,7 @@ export async function getAllPostsMetadata(
         metadata: metadata || {
           title: folderName,
           description: "",
+          date: new Date().toISOString(),
           slug: folderName,
         },
       };
