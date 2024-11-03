@@ -32,7 +32,7 @@ const components: MDXComponents = {
   ),
   h4: (props: HeadingProps) => <h4 className="font-bold" {...props} />,
   p: (props: ParagraphProps) => (
-    <p className="text-foreground leading-snug" {...props} />
+    <p className="text-foreground leading-relaxed" {...props} />
   ),
   ol: (props: ListProps) => (
     <ol className="text-foreground list-decimal pl-5 space-y-2" {...props} />
@@ -80,7 +80,7 @@ const components: MDXComponents = {
     return <code dangerouslySetInnerHTML={{ __html: codeHTML }} {...props} />;
   },
   Table: ({ data }: { data: { headers: string[]; rows: string[][] } }) => (
-    <div className="rounded-lg border bg-card text-card-foreground shadow">
+    <div className="rounded-lg my-6 border bg-card text-card-foreground shadow">
       <Table>
         <TableHeader>
           <TableRow className="border-b border-border hover:bg-transparent">
@@ -113,7 +113,7 @@ const components: MDXComponents = {
   ),
   blockquote: (props: BlockquoteProps) => (
     <blockquote
-      className="ml-[0.075em] border-l-3 border-gray-300 pl-4 text-gray-700"
+      className="my-6 border-l-4 border-emerald-200 bg-emerald-500/20 pl-6 pr-4 py-4 text-gray-700 italic rounded-r-lg shadow-sm"
       {...props}
     />
   ),

@@ -15,7 +15,7 @@ export function PostList({ posts }: PostListProps) {
       {posts.map(({ folderName, metadata }) => (
         <motion.li key={folderName} variants={itemVariants}>
           <Link
-            href={`/writings/${folderName}`}
+            href={`/posts/${folderName}`}
             className="group block hover:bg-muted p-4 rounded-lg transition-colors duration-200"
           >
             <div className="flex items-center justify-between">
