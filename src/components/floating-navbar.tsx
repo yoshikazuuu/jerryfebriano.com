@@ -28,7 +28,7 @@ export function FloatingNavbar() {
 
   return (
     <motion.div
-      className="fixed bottom-6 transform -translate-x-1/2 z-50 w-full flex justify-center"
+      className="fixed bottom-6 transform z-50 w-full flex justify-center"
       initial={{ y: 100, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ type: "spring", stiffness: 500, damping: 20 }}
@@ -48,11 +48,10 @@ export function FloatingNavbar() {
               }
             >
               <item.icon
-                className={`w-6 h-6 transition-colors duration-300 ${
-                  pathname === item.href
-                    ? "text-primary"
-                    : "text-muted-foreground"
-                }`}
+                className={`w-6 h-6 transition-colors duration-300 ${pathname === item.href
+                  ? "text-primary"
+                  : "text-muted-foreground"
+                  }`}
               />
               <AnimatePresence>
                 {hoveredIcon === item.name && (
