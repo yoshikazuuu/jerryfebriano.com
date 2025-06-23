@@ -21,7 +21,7 @@ export default function Home() {
           variants={itemVariants}
           className="grid max-w-sm grid-cols-1 gap-10"
         >
-          <div className="flex flex-col text-sm gap-4 font-light text-muted-foreground">
+          <div className="flex flex-col gap-4 text-muted-foreground">
             <motion.div
               variants={itemVariants}
               className="flex gap-2 items-center"

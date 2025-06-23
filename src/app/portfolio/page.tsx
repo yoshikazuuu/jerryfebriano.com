@@ -1,9 +1,10 @@
 "use client";
 
 import Link from "next/link";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { containerVariants, itemVariants } from "@/lib/transitions";
 import { ExternalLink, Calendar } from "lucide-react";
+import { useState } from "react";
 import {
   SiTypescript,
   SiNextdotjs,
@@ -27,7 +28,6 @@ interface Project {
   technologies: string[];
   year: string;
   url?: string;
-  projectNumber: number;
 }
 
 const projects: Project[] = [
@@ -38,8 +38,7 @@ const projects: Project[] = [
     role: "Full-Stack Developer",
     technologies: ["TypeScript", "Next.js", "Tailwind CSS", "Prisma", "PostgreSQL"],
     year: "2023",
-    url: "https://genshiken-itb.org/",
-    projectNumber: 1
+    url: "https://genshiken-itb.org/"
   },
   {
     title: "Ayo Baca",
@@ -48,8 +47,7 @@ const projects: Project[] = [
     role: "Mobile Developer",
     technologies: ["SwiftUI", "Speech Framework (AVFoundation)", "Core Graphics", "SwiftUI Canvas"],
     year: "2025",
-    url: "https://testflight.apple.com/join/Q4kTSYYF",
-    projectNumber: 2
+    url: "https://testflight.apple.com/join/Q4kTSYYF"
   },
   {
     title: "binus/ai",
@@ -58,8 +56,7 @@ const projects: Project[] = [
     role: "Full-Stack Developer",
     technologies: ["TypeScript", "Next.js", "Tailwind CSS", "Prisma", "PostgreSQL", "Python", "PyTorch", "Pandas", "Django", "tRPC"],
     year: "2023",
-    url: "https://aol-ai.jer.ee",
-    projectNumber: 3
+    url: "https://aol-ai.jer.ee"
   },
   {
     title: "Mizuki Discord Bot",
@@ -68,8 +65,7 @@ const projects: Project[] = [
     role: "Sole Developer",
     technologies: ["JavaScript", "Node.js", "Discord API", "OpenAI API"],
     year: "2022",
-    url: "https://mizuki.jer.ee",
-    projectNumber: 4
+    url: "https://mizuki.jer.ee"
   },
   {
     title: "Cursed To Do List",
@@ -78,8 +74,7 @@ const projects: Project[] = [
     role: "Managing signal and terminal logic",
     technologies: ["C programming", "ncurses library"],
     year: "2023",
-    url: "https://github.com/yoshikazuuu/cursed-todolist",
-    projectNumber: 5
+    url: "https://github.com/yoshikazuuu/cursed-todolist"
   }
 ];
 
@@ -102,76 +97,115 @@ const getTechIcon = (tech: string) => {
   return iconMap[tech] || <span className="w-4 h-4 bg-gray-500 rounded-full" />;
 };
 
-const ProjectCard = ({ project }: { project: Project }) => {
+const ProjectCard = ({ project, index }: { project: Project; index: number }) => {
+  const isEven = index % 2 === 0;
+  const [isDetailsOpen, setIsDetailsOpen] = useState(false);
+
   return (
     <motion.div
       variants={itemVariants}
-      className="border border-border rounded-lg p-6 space-y-4 hover:border-muted-foreground/30 transition-colors"
+      className="py-12"
     >
-      <div className="flex items-start justify-between">
-        <div className="space-y-2">
-          <div className="flex items-center gap-3">
-            <h3 className="font-serif text-xl font-semibold text-foreground">
-              {project.title}
-            </h3>
-            {project.url && (
-              <Link
-                href={project.url}
-                target="_blank"
-                className="text-blue-400 hover:text-blue-300 transition-colors"
-              >
-                <ExternalLink size={16} />
-              </Link>
-            )}
-          </div>
-          <div className="flex items-center gap-4 text-sm text-muted-foreground">
-            <span className="bg-secondary px-2 py-1 rounded font-medium">
-              Project {project.projectNumber} of 5
-            </span>
-            <div className="flex items-center gap-1">
-              <Calendar size={14} />
-              {project.year}
+      <div className={`flex flex-col md:flex-row items-center gap-12 ${isEven ? 'md:flex-row' : 'md:flex-row-reverse'}`}>
+        {/* Project Visual/Placeholder */}
+        <div className="flex-1 flex justify-center">
+          <div className="w-full max-w-md aspect-[4/3] bg-secondary/30 rounded-lg border border-border flex items-center justify-center">
+            <div className="text-center p-8">
+              <h4 className="font-serif text-2xl font-bold text-foreground mb-2">
+                {project.title}
+              </h4>
+              <p className="text-muted-foreground text-sm">
+                Project Visual
+              </p>
             </div>
           </div>
         </div>
-      </div>
 
-      <p className="text-sm leading-relaxed text-muted-foreground">
-        {project.description}
-      </p>
-
-      <div className="space-y-3">
-        <div>
-          <span className="font-semibold text-foreground">Role: </span>
-          <span className="text-muted-foreground">{project.role}</span>
-        </div>
-
-        <div>
-          <span className="font-semibold text-foreground mb-2 block">Technologies:</span>
-          <div className="flex flex-wrap gap-2">
-            {project.technologies.map((tech, index) => (
-              <div key={index} className="flex items-center gap-2 bg-secondary px-3 py-1 rounded-md text-sm">
-                {getTechIcon(tech)}
-                <span>{tech}</span>
+        {/* Project Content */}
+        <div className="flex-1 space-y-6">
+          <div className="space-y-4">
+            <div className="flex items-center justify-between">
+              <div className="flex items-center gap-3">
+                <h3 className="font-serif text-3xl font-bold text-foreground">
+                  {project.title}
+                </h3>
+                {project.url && (
+                  <Link
+                    href={project.url}
+                    target="_blank"
+                    className="text-blue-400 hover:text-blue-300 transition-colors"
+                  >
+                    <ExternalLink size={20} />
+                  </Link>
+                )}
               </div>
-            ))}
+              <div className="flex items-center gap-1 text-sm text-muted-foreground">
+                <Calendar size={14} />
+                {project.year}
+              </div>
+            </div>
+
+            <p className="text-muted-foreground leading-relaxed">
+              {project.description}
+            </p>
+          </div>
+
+          <div className="space-y-4">
+            <div>
+              <span className="font-semibold text-foreground">Role: </span>
+              <span className="text-muted-foreground">{project.role}</span>
+            </div>
+
+            <div>
+              <span className="font-semibold text-foreground mb-3 block">Technologies:</span>
+              <div className="flex flex-wrap gap-2">
+                {project.technologies.map((tech, techIndex) => (
+                  <div key={techIndex} className="flex items-center gap-2 bg-secondary px-3 py-1 rounded-md text-sm">
+                    {getTechIcon(tech)}
+                    <span>{tech}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+
+          <div>
+            <motion.button
+              onClick={() => setIsDetailsOpen(!isDetailsOpen)}
+              className="cursor-pointer text-blue-400 hover:text-blue-300 transition-colors font-medium"
+              whileHover={{ scale: 1.02 }}
+              whileTap={{ scale: 0.98 }}
+            >
+              <span className="flex items-center gap-2">
+                View Details
+                <motion.span
+                  animate={{ rotate: isDetailsOpen ? 90 : 0 }}
+                  transition={{ duration: 0.2 }}
+                >
+                  ›
+                </motion.span>
+              </span>
+            </motion.button>
+            <AnimatePresence>
+              {isDetailsOpen && (
+                <motion.div
+                  initial={{ opacity: 0, height: 0, marginTop: 0 }}
+                  animate={{ opacity: 1, height: "auto", marginTop: 12 }}
+                  exit={{ opacity: 0, height: 0, marginTop: 0 }}
+                  transition={{ duration: 0.3, ease: "easeInOut" }}
+                  className="overflow-hidden"
+                >
+                  <div className="p-4 bg-secondary/50 rounded-md">
+                    <p className="text-sm leading-relaxed text-muted-foreground">
+                      {project.overview}
+                    </p>
+                  </div>
+                </motion.div>
+              )}
+            </AnimatePresence>
           </div>
         </div>
       </div>
-
-      <details className="group">
-        <summary className="cursor-pointer text-blue-400 hover:text-blue-300 transition-colors font-medium list-none">
-          <span className="flex items-center gap-2">
-            View Details
-            <span className="transform transition-transform group-open:rotate-90">›</span>
-          </span>
-        </summary>
-        <div className="mt-3 p-4 bg-secondary/50 rounded-md">
-          <p className="text-sm leading-relaxed text-muted-foreground">
-            {project.overview}
-          </p>
-        </div>
-      </details>
     </motion.div>
   );
 };
@@ -193,14 +227,14 @@ export default function PortfolioPage() {
             <h1 className="font-serif text-foreground text-4xl md:text-5xl font-bold tracking-tight leading-tight mb-4">
               Portfolio
             </h1>
-            <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
+            <p className="text-muted-foreground text-balance text-sm max-w-2xl mx-auto">
               A collection of projects I've built, ranging from web applications to mobile apps and terminal utilities.
             </p>
           </motion.div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+          <div className="space-y-0">
             {projects.map((project, index) => (
-              <ProjectCard key={index} project={project} />
+              <ProjectCard key={index} project={project} index={index} />
             ))}
           </div>
 
