@@ -1,6 +1,6 @@
 "use client";
 
-import { Home, FileText, Wrench } from "lucide-react";
+import { Home, FileText, Briefcase } from "lucide-react";
 import Link from "next/link";
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
@@ -22,7 +22,7 @@ export function FloatingNavbar() {
   const navItems = [
     { name: "Home", href: "/", icon: Home },
     { name: "Writings", href: "/writings", icon: FileText },
-    { name: "Uses", href: "/uses", icon: Wrench },
+    { name: "Portfolio", href: "/portfolio", icon: Briefcase },
     { name: "Mode", href: "#", icon: IconToggle },
   ];
 

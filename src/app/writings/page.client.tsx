@@ -13,7 +13,7 @@ export default function WritingsPageClient({
       initial="hidden"
       animate="visible"
       variants={containerVariants}
-      className="min-h-svh flex flex-col justify-center p-5"
+      className="min-h-svh flex items-center flex-col justify-center p-5"
     >
       <motion.div
         variants={itemVariants}
