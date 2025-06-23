@@ -71,6 +71,7 @@
   body {
     background-color: hsl(var(--background));
     color: hsl(var(--foreground));
+    font-feature-settings: "rlig" 1, "calt" 1;
   }
 }
 
@@ -122,13 +123,76 @@
 
   body {
     text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-variant-ligatures: common-ligatures;
   }
 
+  /* Typography hierarchy with serif fonts for headings */
   h1,
   h2,
   h3,
-  h4 {
+  h4,
+  h5,
+  h6 {
+    font-family: var(--font-serif), Georgia, serif;
     text-wrap: balance;
+    line-height: 1.2;
+    letter-spacing: -0.025em;
+  }
+
+  h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+  }
+
+  h2 {
+    font-size: 2rem;
+    font-weight: 600;
+    margin-bottom: 0.875rem;
+  }
+
+  h3 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 0.75rem;
+  }
+
+  h4 {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 0.625rem;
+  }
+
+  p {
+    line-height: 1.7;
+    margin-bottom: 1rem;
+  }
+
+  /* Better text spacing */
+  .prose p {
+    margin-bottom: 1.25em;
+  }
+
+  .prose h1,
+  .prose h2,
+  .prose h3,
+  .prose h4 {
+    margin-top: 2em;
+    margin-bottom: 1em;
+  }
+
+  .prose h1:first-child,
+  .prose h2:first-child,
+  .prose h3:first-child,
+  .prose h4:first-child {
+    margin-top: 0;
+  }
+
+  /* Enhanced link styling */
+  a {
+    transition: all 0.2s ease-in-out;
   }
 
   pre {
@@ -150,10 +214,11 @@
   }
 
   code {
-    font-family: "Menlo", "Monaco", "Courier New", monospace;
-    font-size: 14px;
+    font-family: var(--font-geist-mono), "Menlo", "Monaco", "Courier New", monospace;
+    font-size: 0.875rem;
     border-radius: 0.3em;
-    background-color: hsl(var(--secondary)); /* Adjust based on light/dark mode */
+    background-color: hsl(var(--secondary));
+    font-feature-settings: "calt" 1;
   }
 
   pre code {

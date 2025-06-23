@@ -26,27 +26,27 @@ export function PostList({ posts }: PostListProps) {
           },
         },
       }}
-      className="space-y-6"
+      className="space-y-8"
     >
       {posts.map(({ folderName, metadata }) => (
         <motion.li key={folderName} variants={itemVariants}>
           <Link href={`/posts/${folderName}`} className="block group">
-            <div className="relative">
-              <h2 className="text-xl font-semibold text-foreground group-hover:text-primary transition-colors duration-200">
+            <article className="relative">
+              <h2 className="font-serif text-xl md:text-2xl font-semibold text-foreground group-hover:text-primary transition-colors duration-200 mb-3 leading-tight">
                 {metadata.title}
               </h2>
               <div className="absolute left-0 bottom-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full" />
-            </div>
-            <div className="flex items-center gap-4 mt-2 text-sm text-muted-foreground">
-              <div className="flex items-center gap-1">
-                <FileText size={14} />
-                <span>{metadata.readingTime || "5 min read"}</span>
+              <div className="flex items-center gap-4 text-sm text-muted-foreground font-sans">
+                <div className="flex items-center gap-1.5">
+                  <FileText size={14} />
+                  <span className="font-medium">{metadata.readingTime || "5 min read"}</span>
+                </div>
+                <div className="flex items-center gap-1.5">
+                  <Clock size={14} />
+                  <span className="font-medium">{new Date(metadata.date).toLocaleDateString()}</span>
+                </div>
               </div>
-              <div className="flex items-center gap-1">
-                <Clock size={14} />
-                <span>{new Date(metadata.date).toLocaleDateString()}</span>
-              </div>
-            </div>
+            </article>
           </Link>
         </motion.li>
       ))}

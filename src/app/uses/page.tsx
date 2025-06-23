@@ -15,9 +15,9 @@ export default function UsesPage() {
       className="min-h-svh flex flex-col justify-center gap-4 items-center p-5"
     >
       <motion.div variants={itemVariants} className="flex gap-2 items-center">
-        <p className="font-sans text-foreground cursor-pointer text-4xl font-extrabold tracking-tighter">
+        <h1 className="font-serif text-foreground cursor-pointer text-4xl md:text-5xl font-bold tracking-tight">
           Uses
-        </p>
+        </h1>
       </motion.div>
       <motion.div variants={itemVariants} className="max-w-xl aspect-[15.4/10]">
         <SmoothBlurImage
@@ -30,56 +30,55 @@ export default function UsesPage() {
       </motion.div>
       <motion.div
         variants={itemVariants}
-        className="grid w-full  grid-cols-1 gap-10"
+        className="grid w-full grid-cols-1 gap-10"
       >
-        <div className="flex flex-col items-center text-left text-sm gap-4 font-mono font-light text-muted-foreground">
-          <p className="mb-6">Some of my stuffs.</p>
-          <ul className="space-y-4">
+        <div className="flex flex-col items-center text-left text-sm gap-4 font-sans font-light text-muted-foreground">
+          <p className="mb-6 text-center font-medium">Some of my stuffs.</p>
+          <ul className="space-y-6 leading-relaxed">
             <li>
-              <span className="bg-secondary px-2 py-1 rounded font-semibold">
+              <span className="bg-secondary px-3 py-1.5 rounded-md font-semibold text-foreground">
                 Workstation:
               </span>{" "}
-              Macbook Pro 14
-              <ul className="ml-6 mt-2 space-y-2">
+              <span className="font-medium">Macbook Pro 14</span>
+              <ul className="ml-6 mt-3 space-y-2 text-muted-foreground">
                 <li>
-                  <span className="font-semibold">Processor:</span> M1 Pro
+                  <span className="font-medium text-foreground">Processor:</span> M1 Pro
                 </li>
                 <li>
-                  <span className="font-semibold">RAM:</span> 16GB
+                  <span className="font-medium text-foreground">RAM:</span> 16GB
                 </li>
                 <li>
-                  <span className="font-semibold">Storage:</span> 512GB
+                  <span className="font-medium text-foreground">Storage:</span> 512GB
                 </li>
               </ul>
             </li>
             <li>
-              <span className="bg-secondary px-2 py-1 rounded font-semibold">
+              <span className="bg-secondary px-3 py-1.5 rounded-md font-semibold text-foreground">
                 Operating System:
               </span>{" "}
-              macOS Sonoma
+              <span className="font-medium">macOS Sonoma</span>
             </li>
             <li>
-              <span className="bg-secondary px-2 py-1 rounded font-semibold">
+              <span className="bg-secondary px-3 py-1.5 rounded-md font-semibold text-foreground">
                 Development Tools:
               </span>
-              <ul className="ml-6 mt-2 space-y-2">
+              <ul className="ml-6 mt-3 space-y-2 text-muted-foreground">
                 <li>
-                  <span className="font-semibold">Editor:</span> Visual Studio
-                  Code
+                  <span className="font-medium text-foreground">Editor:</span> Visual Studio Code
                 </li>
                 <li>
-                  <span className="font-semibold">Terminal:</span> kitty (
+                  <span className="font-medium text-foreground">Terminal:</span> kitty (
                   <Link
                     href="https://www.reddit.com/r/KittyTerminal/comments/13ephdh/comment/jjsha90/"
                     target="_blank"
-                    className="text-blue-400 hover:underline"
+                    className="text-blue-400 hover:underline transition-colors font-medium"
                   >
                     set to xterm-256color
                   </Link>
                   )
                 </li>
                 <li>
-                  <span className="font-semibold">Shell:</span> zsh with omz
+                  <span className="font-medium text-foreground">Shell:</span> zsh with omz
                 </li>
               </ul>
             </li>

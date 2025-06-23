@@ -21,54 +21,56 @@ export default function Home() {
           variants={itemVariants}
           className="grid max-w-sm grid-cols-1 gap-10"
         >
-          <div className="flex flex-col text-sm gap-4 font-mono font-light text-muted-foreground">
+          <div className="flex flex-col text-sm gap-4 font-light text-muted-foreground">
             <motion.div
               variants={itemVariants}
               className="flex gap-2 items-center"
             >
-              <p className="font-sans text-foreground cursor-pointer text-4xl font-extrabold tracking-tighter">
+              <h1 className="font-serif text-foreground cursor-pointer text-4xl md:text-5xl font-bold tracking-tight leading-tight">
                 Jerry Febriano
-              </p>
+              </h1>
             </motion.div>
-            <p className="text-justify">
-              Your comp-sci undergraduate with a strong preference for
-              dark-themed interfaces. Passionate about developing side projects
-              and continually exploring new opportunities.
-              <br />
-              <br />
-              Possess extensive experience in web development, particularly in
-              front-end technologies like{" "}
-              <Link
-                className="text-blue-400 hover:underline"
-                target="_blank"
-                href="https://react.dev"
-              >
-                React
-              </Link>{" "}
-              and{" "}
-              <Link
-                className="text-blue-400 hover:underline"
-                target="_blank"
-                href="https://nextjs.org"
-              >
-                Next.js
-              </Link>
-              , with some experience in{" "}
-              <Link
-                className="text-blue-400 hover:underline"
-                target="_blank"
-                href="https://expressjs.com/"
-              >
-                Express.js
-              </Link>{" "}
-              for back-end development.
-            </p>
+            <div className="font-sans text-justify leading-relaxed space-y-4">
+              <p>
+                Your comp-sci undergraduate with a strong preference for
+                dark-themed interfaces. Passionate about developing side projects
+                and continually exploring new opportunities.
+              </p>
+              <p>
+                Possess extensive experience in web development, particularly in
+                front-end technologies like{" "}
+                <Link
+                  className="text-blue-400 hover:underline transition-colors font-medium"
+                  target="_blank"
+                  href="https://react.dev"
+                >
+                  React
+                </Link>{" "}
+                and{" "}
+                <Link
+                  className="text-blue-400 hover:underline transition-colors font-medium"
+                  target="_blank"
+                  href="https://nextjs.org"
+                >
+                  Next.js
+                </Link>
+                , with some experience in{" "}
+                <Link
+                  className="text-blue-400 hover:underline transition-colors font-medium"
+                  target="_blank"
+                  href="https://expressjs.com/"
+                >
+                  Express.js
+                </Link>{" "}
+                for back-end development.
+              </p>
+            </div>
 
-            <motion.p variants={itemVariants}>
+            <motion.p variants={itemVariants} className="font-sans">
               Currently learning:{" "}
               <Link
                 target="_blank"
-                className="font-bold text-foreground underline-offset-2 hover:underline"
+                className="font-semibold text-foreground underline-offset-2 hover:underline transition-colors"
                 href="https://en.wikipedia.org/wiki/Self-hosting_(web_services)"
               >
                 Self Hosting
@@ -77,12 +79,12 @@ export default function Home() {
 
             <motion.div
               variants={itemVariants}
-              className="flex gap-2 text-primary underline-offset-2"
+              className="flex gap-2 text-primary underline-offset-2 font-sans"
             >
               <Link
                 target="_blank"
                 href="/resume.pdf"
-                className="flex items-center gap-2 hover:underline transition-colors duration-200 hover:text-foreground"
+                className="flex items-center gap-2 hover:underline transition-colors duration-200 hover:text-foreground font-medium"
               >
                 <FileText size={16} />
                 Resume
@@ -91,7 +93,7 @@ export default function Home() {
               <Link
                 target="_blank"
                 href="https://github.com/yoshikazuuu"
-                className="flex items-center gap-2 hover:underline transition-colors duration-200 hover:text-foreground"
+                className="flex items-center gap-2 hover:underline transition-colors duration-200 hover:text-foreground font-medium"
               >
                 <SiGithub size={16} />
                 GitHub
@@ -100,7 +102,7 @@ export default function Home() {
               <Link
                 target="_blank"
                 href="https://www.linkedin.com/in/jerryfebriano/"
-                className="flex items-center gap-2 hover:underline transition-colors duration-200 hover:text-foreground"
+                className="flex items-center gap-2 hover:underline transition-colors duration-200 hover:text-foreground font-medium"
               >
                 <SiLinkedin size={16} />
                 LinkedIn
@@ -110,7 +112,7 @@ export default function Home() {
         </motion.div>
         <motion.div
           variants={itemVariants}
-          className="flex text-xs justify-center items-center mt-10"
+          className="flex text-xs justify-center items-center mt-10 font-sans"
         >
           <p className="text-muted-foreground">get in touch</p>
           <div className="relative flex items-center justify-center w-5 mx-1 h-5">
@@ -119,7 +121,7 @@ export default function Home() {
           </div>
           <Link
             target="_blank"
-            className="font-bold text-foreground underline-offset-2 hover:underline"
+            className="font-semibold text-foreground underline-offset-2 hover:underline transition-colors"
             href="mailto:febrianojerry@gmail.com"
           >
             febrianojerry@gmail.com

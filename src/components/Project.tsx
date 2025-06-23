@@ -31,9 +31,12 @@ interface Project {
 export default function Projects() {
   return (
     <div>
-      <h2 className="font-mono text-lg font-bold text-muted-foreground">
-        PROJECTS {projects.length}
+      <h2 className="font-serif text-2xl font-semibold text-foreground mb-1">
+        Projects
       </h2>
+      <p className="font-mono text-sm font-bold text-muted-foreground mb-6">
+        {projects.length} FEATURED
+      </p>
       <div className="flex flex-col gap-1 py-5">
         {projects.map((project, index) => (
           <Project key={index} {...project} />
@@ -48,7 +51,7 @@ const Project = ({ title, description, link, stack, image }: Project) => {
     <Link
       href={link}
       target="_blank"
-      className="group flex flex-col gap-2 rounded-md p-5 text-gray-200 transition-colors duration-200 hover:bg-gray-200/10 hover:decoration-white"
+      className="group flex flex-col gap-3 rounded-md p-5 text-gray-200 transition-all duration-200 hover:bg-gray-200/10 hover:decoration-white"
     >
       {image && (
         <Image
@@ -56,17 +59,17 @@ const Project = ({ title, description, link, stack, image }: Project) => {
           width={640}
           height={480}
           alt={title}
-          className="rounded-md"
+          className="rounded-md transition-all duration-300 group-hover:scale-[1.02]"
         />
       )}
-      <div className="flex gap-2 underline decoration-gray-700 underline-offset-2 transition-colors duration-300 group-hover:decoration-white">
-        {title.toUpperCase()}{" "}
+      <div className="flex items-center gap-2 font-serif text-lg font-semibold underline decoration-gray-700 underline-offset-2 transition-colors duration-300 group-hover:decoration-white group-hover:text-white">
+        {title}
         <MoveUpRight
-          size={16}
+          size={18}
           className="text-gray-700 transition-colors duration-500 group-hover:text-white"
         />
       </div>
-      <p className="font-mono text-sm text-gray-700 transition-colors duration-700 group-hover:text-muted-foreground">
+      <p className="font-sans text-sm leading-relaxed text-gray-700 transition-colors duration-700 group-hover:text-muted-foreground">
         {description}
       </p>
 
