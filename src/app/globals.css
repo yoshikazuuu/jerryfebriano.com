@@ -71,7 +71,7 @@
     /* @apply border-border; */
   }
   body {
-    @apply bg-background text-foreground;
+    /* @apply bg-background text-foreground; */
   }
 }
 
@@ -166,7 +166,7 @@
   }
 
   code:not(pre code) span {
-    @apply bg-secondary px-1 py-0.5 rounded-md;
+    /* @apply bg-secondary px-1 py-0.5 rounded-md; */
   }
 
   pre code span {
