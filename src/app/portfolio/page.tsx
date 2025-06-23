@@ -32,7 +32,7 @@ interface Project {
 
 const projects: Project[] = [
   {
-    title: "Genshiken ITB's New Website",
+    title: "Genshiken ITB&apos;s New Website",
     description: "A dynamic platform to facilitate university club activities, engaging over 500+ users in promoting and documenting events and initiatives.",
     overview: "As the lead developer for the Genshiken ITB New Website, I developed the site from the ground up to ensure robustness and user-friendliness for over 500 club members. I significantly enhanced site performance, improving load times by more than 200% as confirmed by Google Lighthouse, which is crucial for user satisfaction and site accessibility. Additionally, I integrated a comprehensive authentication and content management system that streamlined operations and improved content handling.",
     role: "Full-Stack Developer",
@@ -228,7 +228,7 @@ export default function PortfolioPage() {
               Portfolio
             </h1>
             <p className="text-muted-foreground text-balance text-sm max-w-2xl mx-auto">
-              A collection of projects I've built, ranging from web applications to mobile apps and terminal utilities.
+              A collection of projects I&apos;ve built, ranging from web applications to mobile apps and terminal utilities.
             </p>
           </motion.div>
 
