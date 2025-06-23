@@ -79,7 +79,7 @@ export default function Home() {
 
             <motion.div
               variants={itemVariants}
-              className="flex gap-2 text-primary underline-offset-2 font-sans"
+              className="flex gap-8 text-primary underline-offset-2 items-center justify-between font-sans"
             >
               <Link
                 target="_blank"
@@ -89,7 +89,6 @@ export default function Home() {
                 <FileText size={16} />
                 Resume
               </Link>
-              <p className="no-underline">•</p>
               <Link
                 target="_blank"
                 href="https://github.com/yoshikazuuu"
@@ -98,7 +97,6 @@ export default function Home() {
                 <SiGithub size={16} />
                 GitHub
               </Link>
-              <p className="no-underline">•</p>
               <Link
                 target="_blank"
                 href="https://www.linkedin.com/in/jerryfebriano/"

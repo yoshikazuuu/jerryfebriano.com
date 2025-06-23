@@ -3,7 +3,7 @@ import Link from "next/link";
 
 export default function MdxLayout({ children }: { children: React.ReactNode }) {
   return (
-    <div className="flex flex-col justify-center items-center text-sm gap-4 font-sans w-full">
+    <div className="flex flex-col justify-center items-center text-sm gap-4 font-sans w-full pb-8 md:pb-12">
       <article className="prose prose-neutral dark:prose-invert max-w-sm md:max-w-lg mb-24">
         {children}
         <footer className="mt-8 pt-8 border-t border-muted not-prose">

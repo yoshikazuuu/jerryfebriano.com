@@ -51,20 +51,22 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={`${GeistSans.variable} ${GeistMono.variable} ${playfairDisplay.variable} font-sans antialiased`}>
+      <body className={`${GeistSans.variable} ${GeistMono.variable} ${playfairDisplay.variable} font-sans antialiased pb-safe`}>
         <ThemeProvider
           attribute="class"
           defaultTheme="dark"
           enableSystem
           disableTransitionOnChange
         >
-          <LayoutTransition
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-          >
-            {children}
-          </LayoutTransition>
+          <div className="min-h-svh pb-8 md:pb-12">
+            <LayoutTransition
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+            >
+              {children}
+            </LayoutTransition>
+          </div>
           <FloatingNavbar />
         </ThemeProvider>
       </body>

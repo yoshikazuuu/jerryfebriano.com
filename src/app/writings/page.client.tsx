@@ -13,22 +13,24 @@ export default function WritingsPageClient({
       initial="hidden"
       animate="visible"
       variants={containerVariants}
-      className="min-h-svh flex flex-col justify-center items-center p-5"
+      className="min-h-svh flex flex-col justify-center p-5"
     >
       <motion.div
         variants={itemVariants}
-        className="grid max-w-xl w-full grid-cols-1 gap-10"
+        className="w-full max-w-sm"
       >
-        <div className="flex flex-col text-sm gap-4 font-sans font-light text-muted-foreground">
+        <div className="flex flex-col text-sm gap-4 font-light text-muted-foreground">
           <motion.div
             variants={itemVariants}
             className="flex gap-2 items-center"
           >
-            <h1 className="font-serif text-foreground cursor-pointer text-4xl md:text-5xl font-bold tracking-tight">
+            <h1 className="font-serif text-foreground cursor-pointer text-4xl md:text-5xl font-bold tracking-tight leading-tight">
               Writings
             </h1>
           </motion.div>
-          {children}
+          <div className="font-sans leading-relaxed space-y-8">
+            {children}
+          </div>
         </div>
       </motion.div>
     </motion.div>
