@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import { containerVariants, itemVariants } from "@/lib/transitions";
 import { ExternalLink, Calendar } from "lucide-react";
@@ -24,6 +25,7 @@ interface Project {
   title: string;
   description: string;
   overview: string;
+  image: string;
   role: string;
   technologies: string[];
   year: string;
@@ -32,9 +34,10 @@ interface Project {
 
 const projects: Project[] = [
   {
-    title: "Genshiken ITB&apos;s New Website",
+    title: "Genshiken ITB's New Website",
     description: "A dynamic platform to facilitate university club activities, engaging over 500+ users in promoting and documenting events and initiatives.",
     overview: "As the lead developer for the Genshiken ITB New Website, I developed the site from the ground up to ensure robustness and user-friendliness for over 500 club members. I significantly enhanced site performance, improving load times by more than 200% as confirmed by Google Lighthouse, which is crucial for user satisfaction and site accessibility. Additionally, I integrated a comprehensive authentication and content management system that streamlined operations and improved content handling.",
+    image: "/genshiken.png",
     role: "Full-Stack Developer",
     technologies: ["TypeScript", "Next.js", "Tailwind CSS", "Prisma", "PostgreSQL"],
     year: "2023",
@@ -44,6 +47,7 @@ const projects: Project[] = [
     title: "Ayo Baca",
     description: "An innovative iOS application designed to empower children with dyslexia in Indonesia, transforming reading challenges into engaging and inclusive learning adventures.",
     overview: "As an iOS developer on this project, I am responsible for implementing the user interface using SwiftUI and creating seamless user experiences with modern iOS frameworks including SwiftData for data persistence and Speech Framework for pronunciation feedback. The application features interactive learning modules including spelling practice with speech-to-text integration, writing practice with Core Graphics canvas implementation, and gamified syllable and word building activities.",
+    image: "/ayobaca.png",
     role: "Mobile Developer",
     technologies: ["SwiftUI", "Speech Framework (AVFoundation)", "Core Graphics", "SwiftUI Canvas"],
     year: "2025",
@@ -53,6 +57,7 @@ const projects: Project[] = [
     title: "binus/ai",
     description: "An innovative emotion recognition application that leverages the power of the BERT model, capable of recognizing five distinct emotions.",
     overview: "By meticulously using two configurations of the BERT model—BERTBASE and BERTLARGE—the application processes and interprets the nuances behind sentences to provide accurate emotion analysis. The development involved fine-tuning the BERT model on a large dataset that includes over 720 sentences, 3,524 paragraphs, 14,722 words, and 674,923 characters, ensuring the model's deep understanding of language and context.",
+    image: "/aol-ai.png",
     role: "Full-Stack Developer",
     technologies: ["TypeScript", "Next.js", "Tailwind CSS", "Prisma", "PostgreSQL", "Python", "PyTorch", "Pandas", "Django", "tRPC"],
     year: "2023",
@@ -62,6 +67,7 @@ const projects: Project[] = [
     title: "Mizuki Discord Bot",
     description: "A versatile Discord bot characterized by its charming and cute aesthetic, offering a wide range of functionalities tailored to enhance user interaction and management within Discord servers.",
     overview: "Mizuki is a multi-purpose Discord bot launched in 2022, characterized by its appealing cute aesthetic. It integrates a variety of features designed to enhance interaction within Discord servers. The bot's functionalities range from general user and server commands to unique features like manga reading, fun interactive 'bonk' commands, and a tool for finding image sources. Additionally, Mizuki supports anonymous confessions and utilizes ChatGPT for generating code snippets and answering questions.",
+    image: "/mizuki.png",
     role: "Sole Developer",
     technologies: ["JavaScript", "Node.js", "Discord API", "OpenAI API"],
     year: "2022",
@@ -71,6 +77,7 @@ const projects: Project[] = [
     title: "Cursed To Do List",
     description: "A robust calendar-based system designed to manage appointments and to-do lists effectively, leveraging the low-level ncurses library for text-based user interfaces in a terminal environment.",
     overview: "This calendar-based appointment and to-do list system utilizes the ncurses library to offer a dynamic user interface that adjusts seamlessly to varying terminal window sizes, enhancing user experience by maintaining functionality regardless of screen dimensions. The system enables efficient appointment management, allowing users to schedule, view, and manage their appointments directly within the calendar interface, thus simplifying the tracking of important dates and events.",
+    image: "/cursed-todolist.png",
     role: "Managing signal and terminal logic",
     technologies: ["C programming", "ncurses library"],
     year: "2023",
@@ -107,26 +114,26 @@ const ProjectCard = ({ project, index }: { project: Project; index: number }) =>
       className="py-12"
     >
       <div className={`flex flex-col md:flex-row items-center gap-12 ${isEven ? 'md:flex-row' : 'md:flex-row-reverse'}`}>
-        {/* Project Visual/Placeholder */}
-        <div className="flex-1 flex justify-center">
-          <div className="w-full max-w-md aspect-[4/3] bg-secondary/30 rounded-lg border border-border flex items-center justify-center">
-            <div className="text-center p-8">
-              <h4 className="font-serif text-2xl font-bold text-foreground mb-2">
-                {project.title}
-              </h4>
-              <p className="text-muted-foreground text-sm">
-                Project Visual
-              </p>
-            </div>
+        {/* Project Visual */}
+        <div className="flex-1 flex justify-center w-full">
+          <div className="w-full max-w-md md:max-w-lg aspect-video relative rounded-lg overflow-hidden border border-border shadow-lg">
+            <Image
+              src={project.image}
+              alt={project.title}
+              fill
+              className="object-cover transition-transform duration-300 hover:scale-105"
+              sizes="(max-width: 768px) 90vw, (max-width: 1200px) 50vw, 40vw"
+              priority={index < 2}
+            />
           </div>
         </div>
 
         {/* Project Content */}
         <div className="flex-1 space-y-6">
           <div className="space-y-4">
-            <div className="flex items-center justify-between">
-              <div className="flex items-center gap-3">
-                <h3 className="font-serif text-3xl font-bold text-foreground">
+            <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+              <div className="flex items-center gap-2 w-fit">
+                <h3 className="font-serif text-3xl font-bold text-foreground w-fit">
                   {project.title}
                 </h3>
                 {project.url && (
