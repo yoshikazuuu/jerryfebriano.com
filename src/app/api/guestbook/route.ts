@@ -51,18 +51,30 @@ export async function POST(request: NextRequest) {
         const db = getDB();
 
         if (!db) {
+            console.error("Database connection failed");
             return NextResponse.json(
                 { error: "Database not available" },
                 { status: 500 }
             );
         }
 
-        const { name, wpm, accuracy } = await request.json();
+        const { name, wpm, accuracy, userId } = await request.json();
+
+        console.log(`Submission attempt - Name: ${name}, WPM: ${wpm}, Accuracy: ${accuracy}, UserId: ${userId}`);
 
         // Validate input
         if (!name || typeof name !== "string" || name.trim().length === 0) {
+            console.warn("Invalid name submitted:", name);
             return NextResponse.json(
                 { error: "Name is required" },
+                { status: 400 }
+            );
+        }
+
+        if (!userId) {
+            console.warn("No userId provided for submission");
+            return NextResponse.json(
+                { error: "User ID is required" },
                 { status: 400 }
             );
         }
@@ -113,6 +125,9 @@ export async function POST(request: NextRequest) {
             accuracy: roundedAccuracy,
             timestamp,
         };
+
+        // Log successful submission
+        console.log(`New entry saved - ID: ${id}, User: ${sanitizedName}, UserId: ${userId}`);
 
         return NextResponse.json(newEntry, { status: 201 });
     } catch (error) {
