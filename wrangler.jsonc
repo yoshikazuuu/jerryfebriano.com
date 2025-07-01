@@ -1,0 +1,27 @@
+/**
+ * ==================================================================
+ * 🚀 This file was generated using `wrangler-cfg migrate` command. 🚀
+ * 
+ * 📌 Learn more, contribute, or report issues:
+ *    👉 [https://github.com/jalmonter/wrangler-cfg#readme]
+ *     
+ * You can safely remove this banner if you want.
+ * ==================================================================
+ */
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "jerryfebriano-com",
+  "compatibility_date": "2025-07-01",
+  "main": ".open-next/worker.js",
+  "assets": {"directory": ".open-next/assets", "binding": "ASSETS"},
+  "compatibility_flags": [
+    "nodejs_compat"
+  ],
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "jerryfebriano-guestbook-db",
+      "database_id": "7d7616e0-72c3-407b-bd21-49468bab33cb"
+    }
+  ]
+}
