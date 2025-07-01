@@ -12,8 +12,7 @@
   "$schema": "node_modules/wrangler/config-schema.json",
   "name": "jerryfebriano-com",
   "compatibility_date": "2025-07-01",
-  "main": ".open-next/worker.js",
-  "assets": {"directory": ".open-next/assets", "binding": "ASSETS"},
+  "pages_build_output_dir": ".vercel/output/static",
   "compatibility_flags": [
     "nodejs_compat"
   ],
