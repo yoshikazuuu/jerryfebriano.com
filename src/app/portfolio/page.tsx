@@ -3,7 +3,8 @@
 import Link from "next/link";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
-import { containerVariants, itemVariants } from "@/lib/transitions";
+import { createContainerVariants, createItemVariants } from "@/lib/transitions";
+import { useReducedMotion, getMotionDuration } from "@/lib/motion-utils";
 import { ExternalLink, Calendar } from "lucide-react";
 import { useState } from "react";
 import {
@@ -104,7 +105,17 @@ const getTechIcon = (tech: string) => {
   return iconMap[tech] || <span className="w-4 h-4 bg-gray-500 rounded-full" />;
 };
 
-const ProjectCard = ({ project, index }: { project: Project; index: number }) => {
+const ProjectCard = ({
+  project,
+  index,
+  reducedMotion,
+  itemVariants
+}: {
+  project: Project;
+  index: number;
+  reducedMotion: boolean;
+  itemVariants: any;
+}) => {
   const isEven = index % 2 === 0;
   const [isDetailsOpen, setIsDetailsOpen] = useState(false);
 
@@ -180,14 +191,14 @@ const ProjectCard = ({ project, index }: { project: Project; index: number }) =>
             <motion.button
               onClick={() => setIsDetailsOpen(!isDetailsOpen)}
               className="cursor-pointer text-blue-400 hover:text-blue-300 transition-colors font-medium"
-              whileHover={{ scale: 1.02 }}
-              whileTap={{ scale: 0.98 }}
+              whileHover={reducedMotion ? {} : { scale: 1.02 }}
+              whileTap={reducedMotion ? {} : { scale: 0.98 }}
             >
               <span className="flex items-center gap-2">
                 View Details
                 <motion.span
                   animate={{ rotate: isDetailsOpen ? 90 : 0 }}
-                  transition={{ duration: 0.2 }}
+                  transition={{ duration: getMotionDuration(0.2, reducedMotion) }}
                 >
                   ›
                 </motion.span>
@@ -199,7 +210,10 @@ const ProjectCard = ({ project, index }: { project: Project; index: number }) =>
                   initial={{ opacity: 0, height: 0, marginTop: 0 }}
                   animate={{ opacity: 1, height: "auto", marginTop: 12 }}
                   exit={{ opacity: 0, height: 0, marginTop: 0 }}
-                  transition={{ duration: 0.3, ease: "easeInOut" }}
+                  transition={{
+                    duration: getMotionDuration(0.3, reducedMotion),
+                    ease: "easeInOut"
+                  }}
                   className="overflow-hidden"
                 >
                   <div className="p-4 bg-secondary/50 rounded-md">
@@ -218,6 +232,10 @@ const ProjectCard = ({ project, index }: { project: Project; index: number }) =>
 };
 
 export default function PortfolioPage() {
+  const reducedMotion = useReducedMotion();
+  const containerVariants = createContainerVariants(reducedMotion);
+  const itemVariants = createItemVariants(reducedMotion);
+
   return (
     <motion.div
       initial="hidden"
@@ -241,7 +259,13 @@ export default function PortfolioPage() {
 
           <div className="space-y-0">
             {projects.map((project, index) => (
-              <ProjectCard key={index} project={project} index={index} />
+              <ProjectCard
+                key={index}
+                project={project}
+                index={index}
+                reducedMotion={reducedMotion}
+                itemVariants={itemVariants}
+              />
             ))}
           </div>
 

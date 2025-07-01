@@ -4,9 +4,14 @@ import { FileText } from "lucide-react";
 import Link from "next/link";
 import { SiGithub, SiLinkedin } from "react-icons/si";
 import { motion, AnimatePresence } from "framer-motion";
-import { containerVariants, itemVariants } from "@/lib/transitions";
+import { createContainerVariants, createItemVariants } from "@/lib/transitions";
+import { useReducedMotion } from "@/lib/motion-utils";
 
 export default function Home() {
+  const reducedMotion = useReducedMotion();
+  const containerVariants = createContainerVariants(reducedMotion);
+  const itemVariants = createItemVariants(reducedMotion);
+
   return (
     <AnimatePresence>
       <motion.div

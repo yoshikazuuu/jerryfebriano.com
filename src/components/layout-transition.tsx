@@ -3,6 +3,7 @@
 import { AnimatePresence, motion } from "framer-motion";
 import { useSelectedLayoutSegment } from "next/navigation";
 import { LayoutRouterContext } from "next/dist/shared/lib/app-router-context.shared-runtime";
+import { useReducedMotion, getMotionDuration } from "@/lib/motion-utils";
 
 import { useContext, useEffect, useRef } from "react";
 
@@ -56,6 +57,26 @@ export function LayoutTransition({
   exit,
 }: LayoutTransitionProps) {
   const segment = useSelectedLayoutSegment();
+  const reducedMotion = useReducedMotion();
+
+  // Fast, smooth page transitions
+  const motionConfig = {
+    initial: { opacity: 0 },
+    animate: {
+      opacity: 1,
+      transition: {
+        duration: getMotionDuration(0.15, reducedMotion),
+        ease: "easeOut"
+      }
+    },
+    exit: {
+      opacity: 0,
+      transition: {
+        duration: getMotionDuration(0.1, reducedMotion),
+        ease: "easeIn"
+      }
+    }
+  };
 
   return (
     <AnimatePresence mode="wait" initial={false}>
@@ -63,9 +84,9 @@ export function LayoutTransition({
         className={className}
         style={style}
         key={segment}
-        initial={initial}
-        animate={animate}
-        exit={exit}
+        initial={reducedMotion ? { opacity: 1 } : (initial || motionConfig.initial)}
+        animate={reducedMotion ? { opacity: 1 } : (animate || motionConfig.animate)}
+        exit={reducedMotion ? { opacity: 1 } : (exit || motionConfig.exit)}
       >
         <FrozenRouter>{children}</FrozenRouter>
       </motion.div>

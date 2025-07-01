@@ -4,18 +4,20 @@ import { motion } from "framer-motion";
 import { FileText, Clock } from "lucide-react";
 import Link from "next/link";
 import { FolderData } from "../types/blog";
-import { containerVariants } from "@/lib/transitions";
+import { createContainerVariants, createItemVariants } from "@/lib/transitions";
+import { useReducedMotion } from "@/lib/motion-utils";
 
 interface PostListProps {
   posts: FolderData[];
 }
 
-const itemVariants = {
-  hidden: { opacity: 0, y: 20 },
-  visible: { opacity: 1, y: 0 },
-};
+// Removed local itemVariants - now using dynamic ones from transitions
 
 export function PostList({ posts }: PostListProps) {
+  const reducedMotion = useReducedMotion();
+  const containerVariants = createContainerVariants(reducedMotion);
+  const itemVariants = createItemVariants(reducedMotion);
+
   return (
     <motion.ul
       initial="hidden"

@@ -1,4 +1,4 @@
-import { FileText } from "lucide-react";
+import { FileTextIcon } from "@/components/ui/file-text";
 import Link from "next/link";
 
 export default function MdxLayout({ children }: { children: React.ReactNode }) {
@@ -20,7 +20,7 @@ export default function MdxLayout({ children }: { children: React.ReactNode }) {
               rel="noopener noreferrer"
               className="flex items-center text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
             >
-              <FileText className="w-4 h-4 mr-2" />
+              <FileTextIcon size={16} className="mr-2" />
               View on GitHub
             </Link>
           </div>

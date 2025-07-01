@@ -1,13 +1,18 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { containerVariants, itemVariants } from "@/lib/transitions";
+import { createContainerVariants, createItemVariants } from "@/lib/transitions";
+import { useReducedMotion } from "@/lib/motion-utils";
 
 export default function WritingsPageClient({
   children,
 }: {
   children: React.ReactNode;
 }) {
+  const reducedMotion = useReducedMotion();
+  const containerVariants = createContainerVariants(reducedMotion);
+  const itemVariants = createItemVariants(reducedMotion);
+
   return (
     <motion.div
       initial="hidden"
