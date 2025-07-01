@@ -1,6 +1,8 @@
 import { NextRequest, NextResponse } from "next/server";
 import { nanoid } from "nanoid";
 
+export const runtime = 'edge';
+
 interface GuestEntry {
     id: string;
     name: string;
