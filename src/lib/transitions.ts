@@ -4,7 +4,7 @@ const containerVariants = {
         opacity: 1,
         filter: "blur(0px)",
         transition: {
-            staggerChildren: 0.1,
+            staggerChildren: 0.5,
             delayChildren: 0.3,
             filter: { duration: 1 },
         },

@@ -58,7 +58,7 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <div className="min-h-svh pb-8 md:pb-12">
+          <div className="min-h-svh pb-8">
             <LayoutTransition
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}

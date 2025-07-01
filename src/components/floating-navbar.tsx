@@ -11,7 +11,7 @@ import {
   TooltipProvider,
   TooltipTrigger,
 } from "@/components/ui/tooltip";
-import { IconToggle } from "./ModeToggle";
+import { IconToggle } from "./mode-toggle";
 import { useTheme } from "next-themes";
 
 export function FloatingNavbar() {
