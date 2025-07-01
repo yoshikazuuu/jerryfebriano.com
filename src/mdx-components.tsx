@@ -1,7 +1,7 @@
 import React, { ComponentPropsWithoutRef } from "react";
 import { Link } from "next-view-transitions";
 import type { MDXComponents } from "mdx/types";
-import { highlight } from "sugar-high";
+import { CodeBlock, InlineCode } from "@/components/code-block";
 import {
   Table,
   TableBody,
@@ -75,9 +75,19 @@ const components: MDXComponents = {
       </a>
     );
   },
-  code: ({ children, ...props }: ComponentPropsWithoutRef<"code">) => {
-    const codeHTML = highlight(children as string);
-    return <code dangerouslySetInnerHTML={{ __html: codeHTML }} {...props} />;
+  code: ({ children, className, ...props }: ComponentPropsWithoutRef<"code"> & { className?: string }) => {
+    // For inline code (code not inside pre blocks)
+    if (!className) {
+      return <InlineCode {...props}>{children}</InlineCode>;
+    }
+
+    // For code blocks with language specified
+    if (typeof children === "string") {
+      return <CodeBlock className={className}>{children}</CodeBlock>;
+    }
+
+    // Fallback for any other cases
+    return <InlineCode {...props}>{children}</InlineCode>;
   },
   Table: ({ data }: { data: { headers: string[]; rows: string[][] } }) => (
     <div className="rounded-lg my-6 border bg-card text-card-foreground shadow">
