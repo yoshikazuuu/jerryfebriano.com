@@ -129,8 +129,8 @@ export function Leaderboard({ entries, isLoading }: LeaderboardProps) {
                         animate={{ opacity: 1, x: 0 }}
                         transition={{ delay: index * 0.05 }}
                         className={`flex items-center justify-between p-4 rounded-lg border transition-colors ${index < 3
-                                ? "bg-gradient-to-r from-primary/10 to-secondary/50 border-primary/20"
-                                : "bg-secondary/30 border-border hover:bg-secondary/50"
+                            ? "bg-gradient-to-r from-primary/10 to-secondary/50 border-primary/20"
+                            : "bg-secondary/30 border-border hover:bg-secondary/50"
                             }`}
                     >
                         <div className="flex items-center gap-4">

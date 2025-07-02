@@ -14,8 +14,9 @@ const withMDX = createMDX({
     // Add markdown plugins here, as desired
 })
 
+// Setup dev platform in development
 if (process.env.NODE_ENV === 'development') {
-    await setupDevPlatform();
+    setupDevPlatform();
 }
 
 // Merge MDX config with Next.js config
