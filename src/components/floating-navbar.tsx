@@ -3,7 +3,6 @@
 import { HomeIcon } from "@/components/ui/home";
 import { FileTextIcon } from "@/components/ui/file-text";
 import { LayersIcon } from "@/components/ui/layers";
-import { BookIcon } from "@/components/ui/book";
 import Link from "next/link";
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
@@ -26,7 +25,6 @@ export function FloatingNavbar() {
     { name: "Home", href: "/", icon: HomeIcon },
     { name: "Writings", href: "/writings", icon: FileTextIcon },
     { name: "Portfolio", href: "/portfolio", icon: LayersIcon },
-    { name: "Guestbook", href: "/guestbook", icon: BookIcon },
     { name: "Mode", href: "#", icon: ModeToggle },
   ];
 

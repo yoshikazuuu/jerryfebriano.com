@@ -15,12 +15,5 @@
   "pages_build_output_dir": ".vercel/output/static",
   "compatibility_flags": [
     "nodejs_compat"
-  ],
-  "d1_databases": [
-    {
-      "binding": "DB",
-      "database_name": "jerryfebriano-guestbook-db",
-      "database_id": "cbb78338-2eed-4112-ba3e-5e911ed1318f"
-    }
   ]
 }
